@@ -1,0 +1,2 @@
+class QuestionBox < ApplicationRecord
+end
