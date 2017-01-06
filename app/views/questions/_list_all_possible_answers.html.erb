@@ -1,0 +1,13 @@
+<div class="col-md-6">
+  <label class='label label-default'>Варианты ответов</label>
+  <% if @possible_answers_list %>
+      <table id="panswer_block">
+        <% @possible_answers_list.each do |item| %>
+            <tr id="panswer_<%=item.id %>">
+              <td width="80%"><%= item.name %></td>
+              <td width="20%"><%= link_to 'Удалить', possible_answer_path(item.id), method: :delete, remote: true, class: 'btn btn-danger btn-xs' %></td>
+            </tr>
+        <% end %>
+      </table>
+  <% end %>
+</div>

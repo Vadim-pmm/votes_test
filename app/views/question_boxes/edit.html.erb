@@ -1,2 +1,16 @@
-<h1>QuestionBoxes#edit</h1>
-<p>Find me in app/views/question_boxes/edit.html.erb</p>
+<h2>Редактирование вопросника : <%= @question_box.name %></h2>
+<div class="col-md-6">
+  <%= form_tag question_box_path, method: :patch, class: "form-group" do %>
+      <%= label_tag :name, 'Название', class: 'label label-default' %>
+      <%= text_field_tag :name, nil, class: 'form-control' %>
+      <br />
+      <div class="form-inline">
+          <%= label_tag :kind, 'Будут варианты ответов ?', class: 'label label-default' %>
+          <%= check_box_tag :kind, class: 'checkbox' %>
+      </div>
+      <br />
+      <%= submit_tag 'Добавить вопрос', class: "btn btn-success btn-sm" %>
+  <% end %>
+</div>
+
+<%= render 'list_all_questions' %>

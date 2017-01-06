@@ -1,2 +1,9 @@
-<h1>QuestionBoxes#new</h1>
-<p>Find me in app/views/question_boxes/new.html.erb</p>
+<div class="col-md-6">
+  <%= form_tag question_boxes_path, method: :post, class: "form-group" do %>
+      <%= label_tag :name, 'Название', class: 'label label-default' %>
+      <%= text_field_tag :name, nil, class: 'form-control' %>
+      <%= submit_tag 'Создать вопросник', class: "btn btn-success btn-sm" %>
+  <% end %>
+</div>
+
+<%= render 'list_all_qboxes' %>

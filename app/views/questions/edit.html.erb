@@ -1,2 +1,12 @@
-<h1>Questions#edit</h1>
-<p>Find me in app/views/questions/edit.html.erb</p>
+<h2>Редактирование вопроса : <%= @question.name %></h2>
+<div class="col-md-6">
+  <%= form_tag question_possible_answers_path(@question.id), method: :post, remote: true, class: "form-group" do %>
+      <%= label_tag :name, 'Название', class: 'label label-default' %>
+      <%= text_field_tag :name, nil, class: 'form-control' %>
+      <br />
+
+      <%= submit_tag 'Добавить вариант ответа', class: "btn btn-success btn-sm" %>
+  <% end %>
+</div>
+
+<%= render 'list_all_possible_answers' %>

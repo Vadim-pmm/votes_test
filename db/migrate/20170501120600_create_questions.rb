@@ -4,7 +4,7 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
       t.string     :name, null: false
       t.integer    :num_no
       t.integer    :kind
-      t.references :poll
+      t.references :question_box
       t.integer    :page_no
 
       t.timestamps

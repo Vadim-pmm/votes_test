@@ -40,14 +40,14 @@ ActiveRecord::Schema.define(version: 20170501121212) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name",            null: false
     t.integer  "num_no"
     t.integer  "kind"
-    t.integer  "poll_id"
+    t.integer  "question_box_id"
     t.integer  "page_no"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["poll_id"], name: "index_questions_on_poll_id", using: :btree
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["question_box_id"], name: "index_questions_on_question_box_id", using: :btree
   end
 
   create_table "replies", force: :cascade do |t|

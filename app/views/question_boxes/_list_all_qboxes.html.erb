@@ -1,0 +1,13 @@
+<div class="col-md-6">
+  <label class='label label-default'>Список созданных вопросников</label>
+  <% if @question_boxes_list %>
+      <table>
+          <% @question_boxes_list.each do |item| %>
+            <tr>
+              <td width="80%"><%= item.name %></td>
+              <td width="20%"><%= link_to 'Просмотреть', edit_question_box_path(item.id), class: 'btn btn-primary btn-sm' %></td>
+            </tr>
+          <% end %>
+      </table>
+  <% end %>
+</div>

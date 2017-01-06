@@ -1,0 +1,7 @@
+var str_1 = "<tr id='panswer_<%= @possible_answer.id %>'><td width='80%'><%= @possible_answer.name %></td><td width='20%'>";
+var str_2 = "<a href='/possible_answers/<%= @possible_answer.id %>' class='btn btn-danger btn-xs' data-remote='true' rel='nofollow' data-method='delete'>";
+var str_3 = "Удалить</a></td></tr>";
+
+
+$("#panswer_block").prepend(str_1 + str_2 + str_3);
+
