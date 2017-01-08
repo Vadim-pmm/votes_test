@@ -10,52 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170501121212) do
+ActiveRecord::Schema.define(version: 0) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "answers", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "question_id"
-    t.integer  "reply_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
-    t.index ["reply_id"], name: "index_answers_on_reply_id", using: :btree
-  end
-
-  create_table "possible_answers", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "question_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["question_id"], name: "index_possible_answers_on_question_id", using: :btree
-  end
-
-  create_table "question_boxes", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "questions", force: :cascade do |t|
-    t.string   "name",            null: false
-    t.integer  "num_no"
-    t.integer  "kind"
-    t.integer  "question_box_id"
-    t.integer  "page_no"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["question_box_id"], name: "index_questions_on_question_box_id", using: :btree
-  end
-
-  create_table "replies", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "question_box_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["question_box_id"], name: "index_replies_on_question_box_id", using: :btree
-  end
 
 end

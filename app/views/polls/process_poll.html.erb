@@ -1,0 +1,12 @@
+<div class="col-md-6">
+  <%= form_for @question_to_proceed, :html => {:class => "form-group"} do |f| %>
+      <%= @question_to_proceed.name %>
+
+      <%= f.label :answer, 'Ответ', class: 'label label-default' %>
+      <%= f.text_field :answer, class: 'form-control' %>
+
+      <%= f.submit 'Ответить', class: "btn btn-success btn-sm" %>
+  <% end %>
+
+
+</div>
