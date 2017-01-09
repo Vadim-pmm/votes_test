@@ -1,0 +1,12 @@
+<div class="col-md-12">
+  <table cellpadding="4">
+    <caption style="text-align:center">Ранее созданные polls</caption>
+    <% @polls_list.each do |item| %>
+     <tr>
+        <td width="60%"><%= item.name %></td>
+        <td width="20%"><%= link_to 'Посмотреть', root_path, class: 'btn btn-primary btn-xs' %></td>
+       <td width="20%"><%= link_to 'Удалить', poll_path(item.id), method: :delete, class: 'btn btn-danger btn-xs' %></td>
+     </tr>
+    <% end %>
+  </table>
+</div>

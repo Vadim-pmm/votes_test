@@ -34,6 +34,16 @@ class QuestionBoxesController < ApplicationController
   def destroy
   end
 
+  def print
+    a=11
+    doc = PrintDoc.new
+    doc.create_content(params[:id])
+    send_data doc.render, filename:"1",
+              type: "application/pdf",
+              disposition: "inline"
+
+  end
+
   private
 
   def params_permitted

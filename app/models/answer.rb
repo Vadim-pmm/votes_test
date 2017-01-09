@@ -1,5 +1,5 @@
 class Answer < ApplicationRecord
-  belongs_to :reply
+  belongs_to :poll
   belongs_to :question
 
 end

@@ -2,9 +2,13 @@ class AnswersController < ApplicationController
 
   def new
 
-    # при первом входе в создание ответов - запонимаем - из какого
-    session[:current_poll_id] ||= params[:poll_id]
-
+    # при первом входе в создание ответов - запоминаем - из какого
+    a=11
+    session[:current_poll_id] = params[:poll_id] if (
+        session[:current_poll_id].nil? || # если первый вход
+        ((session[:current_poll_id] !=  params[:poll_id]) && # если вход из другого poll, но не из внутреннего
+        !params[:poll_id].nil?))
+    a=11
     if all_answered?(session[:current_poll_id])
       session[:current_poll_id] = nil
       redirect_to root_path
@@ -17,7 +21,7 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @poll = Reply.find(session[:current_poll_id])
+    @poll = Poll.find(session[:current_poll_id])
     answer = @poll.answers.new(params_permitted)
     answer.save
     a=11
@@ -26,10 +30,10 @@ class AnswersController < ApplicationController
 
   def find_next_question(current_poll)
     # ищем уже отвеченные вопросы
-    answers = Answer.where(reply_id: current_poll).pluck(:question_id)
+    answers = Answer.where(poll_id: current_poll).pluck(:question_id)
 
     # сначала ищем созданный пустой Опрос.
-    @poll = Reply.find(current_poll)
+    @poll = Poll.find(current_poll)
     # Теперь ищем все неотвеченные вопросы в вопроснике
     questions = @poll.question_box.questions.pluck(:id)
 
@@ -39,9 +43,10 @@ class AnswersController < ApplicationController
   end
 
   def all_answered?(current_poll)
-    answers = Answer.where(reply_id: current_poll).count
+    a=11
+    answers = Answer.where(poll_id: current_poll).count
 
-    @poll = Reply.find(current_poll)
+    @poll = Poll.find(current_poll)
     questions = @poll.question_box.questions.count
 
     (questions == answers)

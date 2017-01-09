@@ -1,13 +1,18 @@
-<h2>Создание опроса :</h2>
-<div class="col-md-6">
+<div class="row shifted">
+  <h4><span class="label label-default">Создание опроса</span></h4>
+
   <%= form_tag polls_path, method: :post, class: "form-group" do %>
-      <%= label_tag :name, 'Название', class: 'label label-default' %>
-      <%= text_field_tag :name, nil, placeholder: 'Название опроса', class: 'form-control' %>
-
-      <%= select_tag(:qbox_id, options_for_select(@question_box_list, 1), {:class => 'form-control', :multiple => false}) %>
-
-      <br />
-
-      <%= submit_tag 'Создать опрос', class: "btn btn-success btn-sm" %>
+    <div class="col-md-12">
+      <div class="col-md-8 form-inline">
+          <%= text_field_tag :name, nil, placeholder: 'Название опроса', size: "100", class: 'form-control' %>
+      </div>
+      <div class="col-md-4">
+          <%= select_tag(:qbox_id, options_for_select(@question_box_list, 1), {:class => 'form-control', :multiple => false}) %>
+      </div>
+    </div>
+    <br />
+    <%= submit_tag 'Создать опрос', class: "btn btn-success btn-sm", style: "margin-top: 20px;" %>
   <% end %>
 </div>
+
+<%= render 'all_polls' %>
