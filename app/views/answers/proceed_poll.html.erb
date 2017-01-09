@@ -1,0 +1,23 @@
+<h2>Ответ на вопрос :</h2>
+<div class="col-md-6">
+  <%= form_tag answers_path, class: 'form-group' do %>
+      <p class="question-text"><%= @question.name %></p>
+      <% if @question.possible_answers.exists? %>
+          <div class="possible_answers">
+            <ul>
+                <% @question.possible_answers.each do |item| %>
+                    <li><%= item.name %></li>
+                <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <!--скрытое поле служит деля передачи значения из вызывающего action proceed_pol в принимающий create -->
+      <%= hidden_field_tag :question_id, @question.id %>
+      <br />
+
+      <%= text_field_tag :name, nil, placeholder: 'Введите ответ', class: 'form-control answer-input' %>
+
+      <%= submit_tag 'Ответить', class: 'btn btn-success btn-sm' %>
+  <% end %>
+
+</div>

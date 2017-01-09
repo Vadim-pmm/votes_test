@@ -4,8 +4,14 @@ class QuestionBoxesController < ApplicationController
   def index
   end
 
+  def show
+    @question_box = QuestionBox.find(params[:id])
+    @questions_list = @question_box.questions.all
+  end
+
   def new
     @question_boxes_list = QuestionBox.all.order(:created_at)
+    flash.now[:notice] = 'Вы зашли в форму !'
   end
 
   def create

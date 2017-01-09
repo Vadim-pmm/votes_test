@@ -1,4 +1,4 @@
-<h2>Редактирование вопросника : <%= @question_box.name %></h2>
+<p class="qbox">Редактирование вопросника : <%= @question_box.name %></p>
 <div class="col-md-6">
   <%= form_tag question_box_path, method: :patch, class: "form-group" do %>
       <%= label_tag :name, 'Название', class: 'label label-default' %>
@@ -10,8 +10,9 @@
       </div>
       <br />
       <%= submit_tag 'Добавить вопрос', class: "btn btn-success btn-sm" %>
+      <%= link_to 'Распечатать', print_path(@question_box.id), class: 'btn btn-primary btn-sm' %>
   <% end %>
-  <%= link_to 'Распечатать', print_path(@question_box.id), class: 'btn btn-primary btn-sm' %>
+
 </div>
 
 <%= render 'list_all_questions' %>

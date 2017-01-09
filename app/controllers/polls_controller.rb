@@ -14,17 +14,16 @@ class PollsController < ApplicationController
     @poll = @qbox.polls.new(params_permitted)
     @poll.save
 
-    # начинаем отвечать на вопросы
-    redirect_to new_answer_path poll_id: @poll.id
+    redirect_to new_poll_path
   end
 
   def destroy
-    a=11
-    poll = Poll.destroy(params[:id])
+    Poll.destroy(params[:id])
     redirect_to new_poll_path
   end
 
   private
+
   def params_permitted
     params.permit(:name)
   end

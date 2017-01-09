@@ -1,7 +1,7 @@
 <div class="col-md-6">
   <label class='label label-default'>Список вопросов</label>
   <% if @questions_list %>
-      <table>
+      <table class="table table-striped">
         <% @questions_list.each do |item| %>
             <tr>
               <td width="80%"><%= item.name %></td>
