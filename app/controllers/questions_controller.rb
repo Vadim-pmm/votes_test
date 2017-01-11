@@ -1,21 +1,10 @@
 class QuestionsController < ApplicationController
 
-  def new
-  end
-
-  def create
-  end
-
   def edit
     @question = Question.find(params[:id])
     @possible_answers_list = @question.possible_answers.all
   end
 
-  def update
-  end
-
-  def destroy
-  end
 
   private
 

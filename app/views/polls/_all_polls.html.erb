@@ -6,7 +6,7 @@
         <td width="60%"><%= item.name %></td>
         <td width="10%"><%= link_to 'Пройти', proceed_path(item.id), class: 'btn btn-primary btn-xs' %></td>
         <td width="20%" class='vert-align'><%= link_to question_box_path(item.question_box_id), class: 'btn btn-primary btn-xs' do %>
-                  Вопросы - <%= content_tag :span, item.question_box.questions.count, {class: 'badge'} %>
+                  Вопросы - <%= content_tag :span, item.question_box.questions.size, {class: 'badge'} %>
               <% end %>
          </td>
        <td width="10%"><%= link_to 'Удалить', poll_path(item.id), method: :delete, class: 'btn btn-danger btn-xs' %></td>

@@ -30,9 +30,9 @@ class AnswersController < ApplicationController
 
   def find_next_question(current_poll)
     # ищем уже отвеченные вопросы
+    a=11
     answers = Answer.where(poll_id: current_poll).pluck(:question_id)
 
-    # сначала ищем созданный пустой Опрос.
     @poll = Poll.find(current_poll)
     # Теперь ищем все неотвеченные вопросы в вопроснике
     questions = @poll.question_box.questions.pluck(:id)

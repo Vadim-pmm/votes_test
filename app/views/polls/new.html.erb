@@ -2,9 +2,9 @@
   <h4><span class="label label-default">Создание опроса</span></h4>
 
   <%= form_tag polls_path, method: :post, class: "form-group" do %>
-    <div class="col-md-12">
-      <div class="col-md-8 form-inline">
-          <%= text_field_tag :name, nil, placeholder: 'Название опроса', size: "100", class: 'form-control' %>
+    <div class="col-md-12 form-inline">
+      <div class="col-md-8">
+          <%= text_field_tag :name, nil, placeholder: 'Название опроса', size: '70', class: 'form-control' %>
       </div>
       <div class="col-md-4">
           <%= select_tag(:qbox_id, options_for_select(@question_box_list, 1), {:class => 'form-control', :multiple => false}) %>

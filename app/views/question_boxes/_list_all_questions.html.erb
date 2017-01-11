@@ -1,7 +1,7 @@
 <div class="col-md-6">
-  <label class='label label-default'>Список вопросов</label>
+  <label class='label label-default'>Список вопросов</label><br />
   <% if @questions_list %>
-      <table class="table table-striped">
+       <table class="table table-striped">
         <% @questions_list.each do |item| %>
             <tr>
               <td width="80%"><%= item.name %></td>
@@ -9,5 +9,8 @@
             </tr>
         <% end %>
       </table>
-  <% end %>
+
+      <%= will_paginate @questions_list %>
+
+<% end %>
 </div>
